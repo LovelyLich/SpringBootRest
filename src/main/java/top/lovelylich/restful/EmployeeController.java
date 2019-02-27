@@ -1,6 +1,7 @@
 package top.lovelylich.restful;
 
 import java.util.List;
+import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RestController
 class EmployeeController {
 
@@ -27,8 +29,9 @@ class EmployeeController {
     }
 
     @PostMapping("/employees")
-    Employee newEmployee(@RequestBody Employee newEmployee) {
-        return repository.save(newEmployee);
+    void newEmployee(String data) {
+        //return repository.save(newEmployee);
+        log.info("data====="+data);
     }
 
     // Single item
